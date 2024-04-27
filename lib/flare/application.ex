@@ -17,10 +17,11 @@ defmodule Flare.Application do
       # Start Finch
       {Finch, name: Flare.Finch},
       # Start the Endpoint (http/https)
-      FlareWeb.Endpoint
+      FlareWeb.Endpoint,
       # Start a worker by calling: Flare.Worker.start_link(arg)
       # {Flare.Worker, arg}
-    ]
+     {Beacon, sites: [[site: :flare, endpoint: FlareWeb.Endpoint]]}
+]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options

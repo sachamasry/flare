@@ -1,11 +1,22 @@
 import Config
 
+# Configure your Beacon repo
+config :beacon, Beacon.Repo,
+  database: Path.expand("../db/flare_dev.db", Path.dirname(__ENV__.file)),
+  stacktrace: true,
+  show_sensitive_data_on_connection_error: true,
+  pool_size: 10
+
+# Configure your Beacon repo
+config :beacon, Beacon.Repo,
+  database: Path.expand("../db/flare_dev.db", Path.dirname(__ENV__.file)),
+  stacktrace: true,
+  show_sensitive_data_on_connection_error: true,
+  pool_size: 10
+
 # Configure your database
 config :flare, Flare.Repo,
-  username: "postgres",
-  password: "postgres",
-  hostname: "localhost",
-  database: "flare_dev",
+  database: Path.expand("../db/flare_dev.db", Path.dirname(__ENV__.file)),
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10

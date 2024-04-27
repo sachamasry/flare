@@ -8,15 +8,12 @@
 import Config
 
 config :flare,
-  ecto_repos: [Flare.Repo]
+  ecto_repos: [Flare.Repo, Beacon.Repo]
 
 # Configures the endpoint
 config :flare, FlareWeb.Endpoint,
   url: [host: "localhost"],
-  render_errors: [
-    formats: [html: FlareWeb.ErrorHTML, json: FlareWeb.ErrorJSON],
-    layout: false
-  ],
+  render_errors: [formats: [html: BeaconWeb.ErrorHTML, json: FlareWeb.ErrorJSON], layout: false],
   pubsub_server: Flare.PubSub,
   live_view: [signing_salt: "aN6sM/c+"]
 

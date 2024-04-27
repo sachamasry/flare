@@ -1,5 +1,6 @@
 defmodule FlareWeb.Router do
   use FlareWeb, :router
+  # use Beacon.LiveAdmin.Router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -8,16 +9,11 @@ defmodule FlareWeb.Router do
     plug :put_root_layout, {FlareWeb.Layouts, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    # plug Beacon.LiveAdmin.Plug
   end
 
   pipeline :api do
     plug :accepts, ["json"]
-  end
-
-  scope "/", FlareWeb do
-    pipe_through :browser
-
-    get "/", PageController, :home
   end
 
   # Other scopes may use custom stacks.
@@ -40,5 +36,12 @@ defmodule FlareWeb.Router do
       live_dashboard "/dashboard", metrics: FlareWeb.Telemetry
       forward "/mailbox", Plug.Swoosh.MailboxPreview
     end
+  end
+
+  use Beacon.Router
+
+  scope "/" do
+    pipe_through :browser
+    beacon_site "/flare", site: :flare
   end
 end

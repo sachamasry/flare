@@ -1,5 +1,16 @@
 # Flare
 
+Flare is an Elixir publishing platform based on Beacon CMS.
+
+## Overview
+
+Beacon CMS is still in very early-stage development, however, the idea of an Elixir-based content 
+management system is extremely appealing. The ability to rely on the same templating system already
+in use in web applications, with the entirety of the Elixir language and the Phoenix [LiveView] system 
+available underneath it, opens up an extraordinary amount of power and flexibility.
+
+## Installation
+
 To start your Phoenix server:
 
   * Run `mix setup` to install and setup dependencies
